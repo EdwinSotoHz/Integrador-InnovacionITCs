@@ -23,7 +23,7 @@ Donde:
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.6\linewidth]{latex-imágenes/grafica_P2.png}
+    \includegraphics[width=0.6\linewidth]{../latex-imágenes/grafica_P2.png}
     \caption{Representación de la conversión}
     \label{fig: Grafica Ecuacion Recta}
 \end{figure}
@@ -43,7 +43,7 @@ Tal y como se muestra en el siguiente diagrama de flujo.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = 6 cm]{latex-imagenes/DF_problema2.jpeg}
+    \includegraphics[width = 6 cm]{../latex-imágenes/DF_problema2.jpeg}
     \caption{Diagrama de flujo del problema1}
     \label{fig:Diagramadeflujodel problema1}
 \end{figure}
@@ -79,14 +79,14 @@ Una vez normalizados los datos, se calcula la discriminante.
 \end{javaCode}
 
 Ya que tenemos el resultado de la discriminante, dependiendo de este se realizara la operación justa, o se dirá que la discriminante esta dentro de los números complejos.\\
-Si la discriminante es mayor que cero se realiza la siguiente operación y se imprimen en pantalla los 2 posibles resultados.:
+Si la discriminante es mayor que cero se realiza la siguiente operación y se imprimen en pantalla los 2 posibles resultados:
 \begin{javaCode}
     if (discriminante>0) {
-            double x1=(-b+Math.sqrt(discriminante))/(2*a);
+        double x1=(-b+Math.sqrt(discriminante))/(2*a);
             
-            double x2=(-b-Math.sqrt(discriminante))/(2*a);
-            System.out.println("La raiz x1 es igual a " + x1);
-            System.out.println("La raiz x1 es igual a " + x2);
+        double x2=(-b-Math.sqrt(discriminante))/(2*a);
+        System.out.println("La raiz x1 es igual a " + x1);
+        System.out.println("La raiz x1 es igual a " + x2);
             
         }
 \end{javaCode}
