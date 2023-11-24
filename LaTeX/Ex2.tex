@@ -3,8 +3,30 @@
 Dada una ecuación cuadratica regresar los valores de las raíces en caso de que estén sobre el conjunto de los números reales, en caso contrario indicar que la solución esta en el conjunto de los números complejos. 
 
 \subsection{\textbf{Descripción del problema:}}
+Se debe determinar si las raíces de una ecuación cuadrática 
+son reales o complejas. Si son reales, se calculan y 
+se proporcionan los valores. Si son complejas, se 
+indica que la solución está en el conjunto de los números complejos.
 
 \subsection{\textbf{Definición de solución:}}
+Este proyecto aborda el problema de resolver ecuaciones cuadráticas, identificando si sus raíces son reales o complejas. 
+Para determinar la naturaleza de las raíces de una ecuación cuadrática de la forma  (\(ax^2 + bx + c = 0\)), se evalúa el discriminante. Si es negativo, las raíces son complejas. De lo contrario, se calculan utilizando la fórmula cuadrática estándar:
+
+\[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]
+
+Donde:
+\begin{itemize}
+    \item \(a\), \(b\), y \(c\) son los coeficientes de la ecuación cuadrática.
+    \item El valor del discriminante determina si las raíces son reales o complejas y proporciona información sobre la cantidad de raíces distintas.
+\end{itemize}
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\linewidth]{latex-imagenes/graficaP1.png}
+    \caption{Representación de la conversión}
+    \label{fig: Grafica Ecuacion Recta}
+\end{figure}
 
 \subsection{\textbf{Diseño de la solución:}}
 
