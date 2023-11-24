@@ -9,7 +9,7 @@
 []()
 
 ## José María Ortiz Escamilla
-[]()
+[José Página Personal](https://joseoe.github.io/)
 
 ## Lizbeth de Jesús Bernal Franco
 []()
