@@ -58,7 +58,7 @@ El proceso de obtener el complemento a 2 de un número binario es un paso esenci
     
     \item Convierte la cadena numeroD a un número de tipo long llamado numeroDecimal.
     \item Verifica si numeroDecimal está en el rango permitido. Si es positivo, realiza la conversión a binario. Si es negativo, calcula los complementos a uno y a dos.
-    \item Si el número está fuera del rango, lanza una excepción IllegalArgumentException.
+    \item Si el número está fuera del rango, lanza unmensaje.
     
     \item Convierte el valor absoluto de numero a su representación binaria.
     \item Utiliza un bucle para realizar sucesivas divisiones por 2, registrando los residuos como bits en la representación binaria.
@@ -79,6 +79,23 @@ El proceso de obtener el complemento a 2 de un número binario es un paso esenci
     \item Imprime el resultado de la conversión a binario o los complementos a uno y a dos, según sea el caso.
     \end{itemize}
 
+    \begin{figure}
+        \centerline{\includegraphics[width=18.5pc]{./latex-imagenes/diagramaDecimalABinarioNegativo}}
+        \caption{Diagrama de flujo en caso de ser números Positivos}
+        \vspace*{-5pt}
+        \label{fig:dos}
+        \end{figure}
+
+        \begin{figure}
+            \centerline{\includegraphics[width=18.5pc]{./latex-imagenes/diagramaDecimalABinarioPositivo}}
+            \caption{Diagrama de Flujo en  caso de ser números negtivos }
+            \vspace*{-5pt}
+            \label{fig:dos}
+            \end{figure}
+            
+            
+
+
 \subsection{\textbf{Desarrollo de la solución:}}
 
 El algoritmo de solución para la conversión 
@@ -89,48 +106,45 @@ import java.math.BigInteger;
 import java.util.Scanner;
 \end{javaCode}
 
-Dentro de un bloque try se validan los datos, usuario tiene condiciones hacerca del numero a convertir, el numero debe ser solo entero ya sea positivo o negativo entre el rango de 64 bits, dependiendo su valor va a imprimirlo de acuerdo al numero ingresado.
-
+Se validan los datos, usuario tiene condiciones hacerca del numero a convertir, el numero debe ser solo entero ya sea positivo o negativo entre el rango de 64 bits, dependiendo su valor va a imprimirlo de acuerdo al numero ingresado.
 Posteriormente se agrega en el método principal, la instrucción para imprimir el resultado de la conversión, en caso de ser negativo se imprimen dos casos de complemento 1 y complemento 2.
 
 \begin{javaCode}
    public static void main(String[] args) {
         Scanner decimal = new Scanner(System.in);
 
-        try {
-            // Solicitud del número decimal
-            System.out.println("Ingrese el número decimal entero positivo o negativo RANGO 64 bits [-1024, 1024]: ");
-            String input = decimal.nextLine();
+        
+        // Solicitud del número decimal
+        System.out.println("Ingrese el número decimal entero positivo o negativo RANGO 64 bits [-1024, 1024]: ");
+        String numeroD = decimal.nextLine();
 
-            // Convierte la variable a un número de tipo long 
-            numeroDecimal = Long.parseLong(input);
+        // Convierte la variable a un número de tipo long 
+        numeroDecimal = Long.parseLong(numeroD);
 
-            // Valida el rango solicitado
-            if (numeroDecimal >= -1024 && numeroDecimal <= 1024) {
-                if (numeroDecimal >= 0) {
-                    // Impresión del número convertido en caso de ser positivo 
-                    System.out.println("El número convertido a binario es: " + decimalABinario());
+        // Valida el rango solicitado
+        if (numeroDecimal >= -1024 && numeroDecimal <= 1024) {
+            if (numeroDecimal >= 0) {
+                // Impresión del número convertido en caso de ser positivo 
+                System.out.println("El número convertido a binario es: " + decimalABinario());
+            } else {
+                //Impresión del número en caso de ser negativo 
+                System.out.println("Complemento a 1: " + complementoAUno());
+                System.out.println("Complemento a 2: " + complementoADos());
+            }
+    
+}
 \end{javaCode}
 
-En caso contrario que el usuario haya tecleado un numero diferente al solicitado debe de caer en el bloque catch, donde si se encuentra fuera del rango o sea otro tipo de valor va a arrojar una excepción.
+En caso contrario que el usuario haya tecleado un numero diferente al solicitado , donde si se encuentra fuera del rango o sea otro tipo de valor va a arrojar un mensaje de "Error". 
+Y cierra el escaneo para seguridad.
 
 \begin{javaCode}
     //Excepción en caso de no encontrase en el rango solicitado
-            } else {
-                throw new IllegalArgumentException("Error: Fuera de rango.");
-            }
-        // Excepciones en caso de ingresar un valor no válido 
-        } catch (NumberFormatException e) {
-            System.out.println("Error: Formato no válido" );
-            
-        //
-        } catch (IllegalArgumentException e) {
-            System.out.println("Error: " + e.getMessage());
-        } finally {
-        // Cerrar el scaneo 
-            decimal.close(); 
-        }
-    }  
+    } else {
+         System.out.println("Error: Formato no válido" );
+    }
+// Cerrar el scaneo 
+decimal.close(); 
 \end{javaCode}
 
 En el método decimalABinario se crea una variable llamada "binario" es una cadena,  toma el valor decimal y lo convierte en el valor absoluto, automáticamente si el numero ingresado es 0 lo retornara de igual forma 
