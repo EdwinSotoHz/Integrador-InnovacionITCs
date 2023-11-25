@@ -3,11 +3,168 @@
 Dados 2 puntos $A \mbox{ y } B$ con coordenadas $x_{1}, y_{1}$ y $x_{2}, y_{2}$  respectivamente. Regresar la ecuación de la recta y el ángulo interno $\alpha$ que se forma entre el eje horizontal y la recta. 
 
 \subsection{\textbf{Descripción del problema:}}
+En el contexto de geometría analítica, la tarea es obtener la ecuación de la recta que pasa por los puntos $A$ y $B$, así como determinar el ángulo interno $\alpha$ que se forma entre la recta y el eje horizontal. La solución implica el uso de conceptos trigonométricos y algebraicos para abordar este problema geométrico de manera precisa y eficiente.
 
 \subsection{\textbf{Definición de solución:}}
+La solución propuesta emplea tres funciones matemáticas clave. Primero, se calcula la inclinación de la recta mediante la función \texttt{inclinación}, luego se determina la intersección en el eje $Y$ con la función \texttt{intersección}, y finalmente se calcula el ángulo interno $\alpha$ con la función \texttt{ángulo}. Estas funciones trabajan en conjunto para proporcionar la ecuación de la recta y el ángulo deseado.
+
+En la ecuación de la recta, si dos puntos distintos $P(x_{1}, y_{1})$ y $Q(x_{2}, y_{2})$ se ubican en la curva $y=f(x)$, la pendiente de la recta secante que une los dos puntos es:
+
+\begin{equation}
+    m_{sec}=\frac{y_{2} - y_{1}}{x_{2} - x_{1}} = \frac{f_{(x2)} - f_{(x1)} }{x_{2} - x_{1}}/
+    \label{eqn:rectaPendiente}
+\end{equation}
+
+La forma punto-pendiente de la ecuación de la recta, con una coordenada especifica en el plano cartesiano se define como:
+\begin{equation}
+    b = y_{1} - m * x_{1}
+     \label{eqn:eqnRecta}
+\end{equation}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = 6 cm]{imagen/GraficaEcuacionRecta.png}
+    \caption{Gráfica de la ecuación de la recta}
+    \label{fig:GraficaEcuacionRecta}
+\end{figure}
+
+Utilizando este método, puedes encontrar la ecuación de la recta a partir de dos puntos. Recuerda que si los dos puntos son idénticos la recta será una linea vertical \cite{rectaPendiente}
+
+El algoritmo de solución para encontrar la ecuación de la recta pendiente  (ec. \ref{eqn:rectaPendiente}) comienza solicitando al usuario dos puntos $P(x_{1}, y_{1})$ y $Q(x_{2}, y_{2})$.
 
 \subsection{\textbf{Diseño de la solución:}}
+\begin{enumerate}
+    \item \textbf{Ecuación de la Recta:} La ecuación de la recta que pasa por dos puntos $(x_{1}, y_{1})$ y $(x_{2}, y_{2})$ se puede obtener usando la fórmula punto-pendiente:
+    \begin{equation*}
+        y - y_{1} = m(x - x_{1}),
+    \end{equation*}
+    donde $m$ es la pendiente de la recta. La pendiente $m$ se puede calcular como:
+    \begin{equation*}
+        m = \frac{y_{2} - y_{1}}{x_{2} - x_{1}}.
+    \end{equation*}
+    Sustituyendo esta pendiente en la fórmula punto-pendiente, se obtiene la ecuación de la recta.
+
+    \item \textbf{Ángulo $\alpha$:} El ángulo $\alpha$ entre la recta y el eje horizontal se puede calcular utilizando la tangente del ángulo:
+    \begin{equation*}
+        \tan(\alpha) = \frac{\text{Pendiente de la Recta}}{1}.
+    \end{equation*}
+    Por lo tanto, el ángulo $\alpha$ se puede encontrar usando la arco tangente:
+    \begin{equation*}
+        \alpha = \arctan\left(\frac{\text{Pendiente de la Recta}}{1}\right).
+    \end{equation*}
+\end{enumerate}
 
 \subsection{\textbf{Desarrollo de la solución:}}
+En este fragmento, se solicitan las coordenadas de dos puntos, A y B, que se ingresan en formato (x, y). \\
+Las coordenadas se leen como cadenas para separar las componentes x e y.\\ Finalmente, se cierra el objeto Scanner para liberar los recursos.
+
+\begin{javaCode}
+
+Scanner puntos = new Scanner (System.in);
+        
+    //Solicitar puntos para la ecuacion de la recta  
+    System.out.println("""
+                        Ingresa las coordenadas del punto 1.
+                        seperadas por una coma (x,y):
+                           """);
+    
+    String[] punto1 =puntos.nextLine().split(",");
+        
+    System.out.println("""
+                        Ingresa las coordenadas del punto 1.
+                        seperadas por una coma (x,y):
+                        """);
+    
+    String[] punto2 =puntos.nextLine().split(",");
+        
+    //cerrar el escaneo
+    puntos.close();
+        
+\end{javaCode}
+
+Las coordenadas separadas se convierten de cadenas a números enteros utilizando Integer.parseInt(). \\
+El método trim() se utiliza para eliminar cualquier espacio en blanco que pueda haber alrededor de las coordenadas.
+
+\begin{javaCode}
+    //Asignar valor de coordenadas a x,y para dos puntos
+    int x1= Integer.parseInt(punto1[0].trim());
+    int y1= Integer.parseInt(punto1[1].trim());
+    
+    int x2= Integer.parseInt(punto2[0].trim());
+    int y2= Integer.parseInt(punto2[1].trim());
+\end{javaCode}
+
+Aquí se calcula la pendiente ($m$) de la recta utilizando la fórmula
+\[
+m = \frac{{y_2 - y_1}}{{x_2 - x_1}}
+\]
+y luego se calcula la intersección en el eje $Y$ ($b$) utilizando la fórmula.(ec. \ref{eqn:eqnRecta})
+La ecuación de la recta resultante es\\ $y = mx + b$.
+
+\begin{javaCode}
+    //Calculo para la inclinacion de la recta  
+    Double m = (double)(y2 - y1)/(x2 - x1);
+       
+    //Calcular Interseccion de la recta
+    Double b= y1 -(m * x1);
+\end{javaCode}
+Se calcula el ángulo interno (\(\alpha\)) entre la recta y el eje horizontal utilizando la función \texttt{Math.atan2()}. El resultado se convierte de radianes a grados.
+\begin{javaCode}
+        //Calculo de el angulo interno
+        double rad=Math.atan2(y2 - y1, x2 - x1);
+        
+        //Coversion de radianes a grados
+        double a=rad*(180/Math.PI);
+        
+\end{javaCode}
+
+Finalmente, se imprime la ecuación de la recta y el ángulo interno en grados. La ecuación se imprime en formato \(mx + by\), y el ángulo se imprime en grados.
+\begin{javaCode}
+   //Imprimir ecuacion de la recta
+        
+        System.out.println("Ecuacion de la recta igual= \n" +
+                 m + " x + " + b + " y ");
+        System.out.println("Angulo interno= \n" + a);
+\end{javaCode}
+
 
 \subsection{\textbf{Depuración y pruebas:}}
+
+\begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \textbf{No.} & \textbf{Datos Ingresados} & \textbf{\(\boldsymbol{x_1}\)} & \textbf{\(\boldsymbol{y_1}\)} & \textbf{\(\boldsymbol{x_2}\)} & \textbf{\(\boldsymbol{y_2}\)} \\
+    \hline
+    1 & (2, 3), (4, 7) & 2 & 3 & 4 & 7 \\
+    \hline
+    2 & (-1, 0), (3, 4) & -1 & 0 & 3 & 4 \\
+    \hline
+    3 & (0, 0), (0, 5) & 0 & 0 & 0 & 5 \\
+    \hline
+    \end{tabular}
+    
+    \vspace{0.5cm}
+    
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{No.} & \textbf{\(m\)} & \textbf{\(b\)} \\
+    \hline
+    1 & 2.0 & -1.0 \\
+    \hline
+    2 & 1.0 & 1.0 \\
+    \hline
+    3 & \text{indefinido} & \text{indefinido} \\
+    \hline
+    \end{tabular}
+    
+    \vspace{0.5cm}
+    
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{no.} & \textbf{\(\alpha\)} \\
+    \hline
+    1 & \(63.43^\circ\) \\
+    \hline
+    2 & \(63.43^\circ\) \\
+    \hline
+    3 & \(90^\circ\) \\
+    \hline
+    \end{tabular}
