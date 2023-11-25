@@ -20,42 +20,42 @@ Estos conjuntos de condiciones AND, que pueden incluir negaciones (NOT), se cons
 La siguiente notación se relaciona directamente con la técnica de la Suma de Productos (SOP) mencionada previamente.\\
 \[ F(A, B, C, ...) = \Sigma(m_i) \]
 Donde:
-\begin{enumerate}
+\begin{itemize}
 
-  \item \textbf{\(\Sigma(m_i)\):} Indica que se está sumando sobre los términos \(m_i\), donde \(i\) representa los índices que van desde el valor inicial hasta el valor final.
+  \item[{\ieeeguilsinglright}] {\it \(\Sigma(m_i)\):} Indica que se está sumando sobre los términos \(m_i\), donde \(i\) representa los índices que van desde el valor inicial hasta el valor final.
 
-  \item \textbf{\(m_i\):} Cada término \(m_i\) es un producto que representa una combinación específica de las variables \(A, B, C, ...\) y sus negaciones.
-\end{enumerate}
+  \item[{\ieeeguilsinglright}] {\it \(m_i\):} Cada término \(m_i\) es un producto que representa una combinación específica de las variables \(A, B, C, ...\) y sus negaciones.
+\end{itemize}
 
 Se centra únicamente en las salidas con valor 1 porque estas representan los casos en los que la función booleana es verdadera o activa, si la salida es 0 para una combinación particular de entradas, ese caso no contribuirá al término de suma de productos
 
 
 \subsection{\textbf{Diseño de la Solución:}}
 
-\begin{enumerate}
-    \item \textbf{Entrada de Datos:}
+\begin{itemize}
+    \item[{\ieeeguilsinglright}] {\it Entrada de Datos:}
         Se solicita la cantidad de bits (\(n\)) y las posiciones de salidas activas.
         
-    \item \textbf{Generación de la Tabla de Verdad:}
+    \item[{\ieeeguilsinglright}] {\it Generación de la Tabla de Verdad:}
         Se crea la tabla de verdad con todas las combinaciones posibles de\(n\) bits.
 
-    \item \textbf{Identificación de Combinaciones Activas:}
+    \item[{\ieeeguilsinglright}] {\it Identificación de Combinaciones Activas:}
         Se determinan las combinaciones de entradas que resultan en salidas activas (1).
 
-    \item \textbf{Generación de Términos de Producto:}
+    \item[{\ieeeguilsinglright}] {\it Generación de Términos de Producto:}
         Para cada combinación activa, se crea un producto con la multiplicación binaria (AND).
 
-    \item \textbf{Construcción de la Expresión Booleana:}
+    \item[{\ieeeguilsinglright}] {\it Construcción de la Expresión Booleana:}
         Los producto se combinan con la suma de todos estos (OR).
 
-    \item \textbf{Presentación de la Expresión:}
+    \item[{\ieeeguilsinglright}] {\it Presentación de la Expresión:}
          Se muestra la expresión booleana final.        
-\end{enumerate}
+\end{itemize}
 \newpage
 
 \subsection{\textbf{Desarrollo de la solución:}}
 
-1. Se solicita al usuario la cantidad de bits y las posiciones de las salidas activas, con esto de calcula la cantidad de columnas y filas para la tabla desde el método(\texttt{main}).
+Se solicita al usuario la cantidad de bits y las posiciones de las salidas activas, con esto de calcula la cantidad de columnas y filas para la tabla desde el método(\texttt{main}).
 \begin{javaCode}
 Scanner entradaDatos = new Scanner(System.in);
     //Entrada de datos cantidad de bits 
@@ -71,7 +71,7 @@ Scanner entradaDatos = new Scanner(System.in);
     entradaDatos.close();//cerrar captura de datos
 \end{javaCode}
 
-2. La función \texttt{llenarTabla} llena una matriz con todas las combinaciones posibles de bits y asigna los valores de salida correspondientes y retorna la matriz que representa la tabla con los valores corrspondientes.
+La función \texttt{llenarTabla} llena una matriz con todas las combinaciones posibles de bits y asigna los valores de salida correspondientes y retorna la matriz que representa la tabla con los valores corrspondientes.
 \begin{javaCode}
     public static int[][] llenarTabla(int[][] tabla, int numBits, String[] salidas) {
     //...codigo restante
@@ -79,7 +79,7 @@ Scanner entradaDatos = new Scanner(System.in);
     }
 \end{javaCode}
    \begin{itemize}
-       \item Convierte las posiciones de salida activas en un arreglo tipo entero para su fácil manejo.
+       \item[{\ieeeguilsinglright}] {\it } Convierte las posiciones de salida activas en un arreglo tipo entero para su fácil manejo.
    \begin{javaCode}
     int[] salidasInt = new int[salidas.length];
     for (int i = 0; i < salidasInt.length; i++) {
@@ -88,7 +88,7 @@ Scanner entradaDatos = new Scanner(System.in);
     Arrays.sort(salidasInt);
    \end{javaCode}
        
-       \item Utiliza bucles \texttt{for} para asignar todas las combinaciones de bits y asigna las salidas activas haciendo uso de condicionales.
+       \item[{\ieeeguilsinglright}] {\it }  Utiliza bucles \texttt{for} para asignar todas las combinaciones de bits y asigna las salidas activas haciendo uso de condicionales.
     \begin{javaCode}
     /Llenar las combinaciones
     for (int i = 0; i < tabla.length; i++) {
@@ -111,7 +111,7 @@ Scanner entradaDatos = new Scanner(System.in);
    \end{itemize}
 
 
-3. Las combinaciones activas (salida igual a 1) se identifican y se almacenan en una matriz auxiliar.
+Las combinaciones activas (salida igual a 1) se identifican y se almacenan en una matriz auxiliar.
 \begin{javaCode}
 //Obtener las filas con salidas de valor 1
 String[][] salidasUno = new String[salidas.length][filas-1];
@@ -127,7 +127,7 @@ for (int i = 0; i < filas; i++) {
 }
 \end{javaCode}
 
-4. Se asigna la letra correspondiente y se crea un producto para cada combinación activa utilizando la multiplicación binaria.
+Se asigna la letra correspondiente y se crea un producto para cada combinación activa utilizando la multiplicación binaria.
 \begin{javaCode}
 //Cambiar valores por la letra correspondiente
     for (String[] salidasUno1 : salidasUno) {
@@ -141,7 +141,7 @@ for (int i = 0; i < filas; i++) {
     }
 \end{javaCode}
 
-5. Se construye la expresión booleana combinando los términos de producto con la suma de todos ellos.
+Se construye la expresión booleana combinando los términos de producto con la suma de todos ellos.
 \begin{javaCode}
 //Concatear arreglo en una cadena
 for (int i = 0; i < salidasUno.length; i++) {
@@ -153,7 +153,7 @@ for (int i = 0; i < salidasUno.length; i++) {
     }
 }
 \end{javaCode}
-6. La función \texttt{imprimirTabla} imprime la tabla de verdad en la consola con colores para una mejor visualización iterando por cada  encabezado y elementos de la matriz.
+La función \texttt{imprimirTabla} imprime la tabla de verdad en la consola con colores para una mejor visualización iterando por cada  encabezado y elementos de la matriz.
 \begin{javaCode}
 //Datos
     int filas = tablaDeVerdad.length;
@@ -170,7 +170,7 @@ for (int i = 0; i < salidasUno.length; i++) {
 \end{javaCode}
 \newpage
 \begin{itemize}
-       \item Se itera por los encabezados correspondientes
+       \item[{\ieeeguilsinglright}] {\it } Se itera por los encabezados correspondientes
 \begin{javaCode}    
     //Imprimir la tabla
     System.out.println("\nLa tabla de verdad es:");
@@ -185,7 +185,7 @@ for (int i = 0; i < salidasUno.length; i++) {
     }
     System.out.println();
 \end{javaCode}
-    \item Se itera por los el contenido de la tabla
+    \item[{\ieeeguilsinglright}] {\it } Se itera por los el contenido de la tabla
 \begin{javaCode}
     //Combinaciones de la tabla
     for (int i = 0; i < filas; i++) {
@@ -202,7 +202,7 @@ for (int i = 0; i < salidasUno.length; i++) {
 \end{itemize}
 
 
-- En el método principal (\texttt{main}) se genera la tabla de verdad, la imprime y muestra la expresión booleana resultante.
+En el método principal (\texttt{main}) se genera la tabla de verdad, la imprime y muestra la expresión booleana resultante.
 \begin{javaCode}
 public static void main(String[] args) {
     //resto del codigo
