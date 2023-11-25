@@ -12,13 +12,11 @@ import java.util.Scanner;
  * @author karenxc
  */
 public class decimalABinario {
-    
-    private static long numeroDecimal;
+ private static long numeroDecimal;
 
     public static void main(String[] args) {
         Scanner decimal = new Scanner(System.in);
 
-        try {
             // Solicitud del número decimal
             System.out.println("Ingrese el número decimal entero positivo o negativo RANGO 64 bits [-1024, 1024]: ");
             String numeroD = decimal.nextLine();
@@ -38,19 +36,11 @@ public class decimalABinario {
                 }
             //Excepción en caso de no encontrase en el rango solicitado
             } else {
-                throw new IllegalArgumentException("Error: Fuera de rango.");
+                 System.out.println("Error: Formato no válido" );
             }
-        // Excepciones en caso de ingresar un valor no válido al solicitado 
-        } catch (NumberFormatException e) {
-            System.out.println("Error: Formato no válido" );
-            
-        // Excepcion si se proporcionó un argumento ilegal o inapropiado a un método.
-        } catch (IllegalArgumentException e) {
-            System.out.println("Error: " + e.getMessage());
-        } finally {
         // Cerrar el scaneo 
-            decimal.close(); 
-        }
+        decimal.close(); 
+        
     }
 
     public static String decimalABinario() {
