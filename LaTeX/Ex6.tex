@@ -13,11 +13,10 @@ Estos conjuntos de condiciones AND, que pueden incluir negaciones (NOT), se cons
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.9\linewidth]{LaTeX//latex-imágenes/truth-table.png}
+    \includegraphics[width=0.7\linewidth]{./latex-imágenes/truth-table.png}
     \caption{Suma de productos para una tabla de verdad}
     \label{fig:enter-label}
 \end{figure}
-
 La siguiente notación se relaciona directamente con la técnica de la Suma de Productos (SOP) mencionada previamente.\\
 \[ F(A, B, C, ...) = \Sigma(m_i) \]
 Donde:
@@ -168,7 +167,11 @@ for (int i = 0; i < salidasUno.length; i++) {
         "\u001B[33m", // amarillo
         "\u001B[36m", // cian
     };
-    
+\end{javaCode}
+\newpage
+\begin{itemize}
+       \item Se itera por los encabezados correspondientes
+\begin{javaCode}    
     //Imprimir la tabla
     System.out.println("\nLa tabla de verdad es:");
     // Encabezados
@@ -181,6 +184,9 @@ for (int i = 0; i < salidasUno.length; i++) {
         }
     }
     System.out.println();
+\end{javaCode}
+    \item Se itera por los el contenido de la tabla
+\begin{javaCode}
     //Combinaciones de la tabla
     for (int i = 0; i < filas; i++) {
         if (i<9) {
@@ -193,6 +199,7 @@ for (int i = 0; i < salidasUno.length; i++) {
         System.out.println();
     }
 \end{javaCode}
+\end{itemize}
 
 
 - En el método principal (\texttt{main}) se genera la tabla de verdad, la imprime y muestra la expresión booleana resultante.
@@ -231,7 +238,7 @@ public static void main(String[] args) {
 \caption{Tabla de verdad 1}
 Expresión booleana: $ABC + A'BC'$
 \end{table}
-
+\newpage
 \begin{table}[h]
 \centering
 \begin{tabular}{|c|c|c|c|}
