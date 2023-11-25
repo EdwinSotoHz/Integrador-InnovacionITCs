@@ -8,7 +8,7 @@ El problema consiste en determinar si un punto $T$, dado por sus coordenadas $(x
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = 4 cm]{LaTeX/latex-imagenes/circunferenciaE3.png}
+    \includegraphics[width = 4 cm]{./latex-imágenes/circunferenciaE3.png}
     \caption{Circunferencia con dos puntos a distancia.}
     \label{fig:uno}
 \end{figure}
@@ -28,7 +28,7 @@ Distancia =
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = 8 cm]{LaTeX/latex-imagenes/Ejemplo E3.png}
+    \includegraphics[width = 8 cm]{./latex-imágenes/Ejemplo E3.png}
     \caption{Por lo tanto, la distancia entre Ay B es de 5 unidades}
     \label{fig:Ejemplo}
 \end{figure}
@@ -45,7 +45,7 @@ Al final solo comparamos la distancia calculada con el radio $r$ de la circunfer
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = 5 cm]{LaTeX/latex-imagenes/circunferenciaE32.png}
+    \includegraphics[width = 5 cm]{./latex-imágenes/circunferenciaE32.png}
     \caption{Ejemplo de comparación de la distancia y el radio.}
     \label{fig:uno}
 \end{figure}
@@ -62,7 +62,7 @@ Al final solo comparamos la distancia calculada con el radio $r$ de la circunfer
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = 8 cm]{LaTeX/latex-imagenes/DiagramaE3.png}
+    \includegraphics[width = 8 cm]{./latex-imágenes/DiagramaE3.png}
     \caption{Diagrama de flujo del problema 3}
     \label{fig:DiagrmadeFlujo}
 \end{figure}
@@ -71,68 +71,68 @@ Al final solo comparamos la distancia calculada con el radio $r$ de la circunfer
 \subsection{\textbf{Desarrollo de la solución:}}
 
 Se importa la clase Scanner para que se pueda leer las entradas del usuario
-\begin{lstlisting}[style=javaStyle]
+\begin{javaCode}
 import java.util.Scanner;
-\end{lstlisting}
+\end{javaCode}
 
 Posteriormente se define la clase llamada "CircufrenciaIntegrador" que contendrá el programa.
-\begin{lstlisting}[style=javaStyle]
+\begin{javaCode}
     public class CircuferenciaIntegrador {
     public static void main(String[] args) {} 
-\end{lstlisting}\\
+\end{javaCode}\\
 
 Igualmente se crea una instancia de Scanner para leer la entrada del usuario
-\begin{lstlisting}[style=javaStyle]
+\begin{javaCode}
 Scanner datC = new Scanner(System.in);
-\end{lstlisting}
+\end{javaCode}
 
 Se solicita al usuario que ingrese las coordenadas del punto C en el formato \textbf{"x1, y1"}, las cuales se almacenan en un arreglo de cadenas llamado \textbf{"puntoC"}
-\begin{lstlisting}[style=javaStyle]
+\begin{javaCode}
 System.out.print("""
                 Ingrese las coordenadas del punto C 
                 seperadas por una coma (x1, y1):
                          """);
     String[] puntoC = (datC.nextLine()).split(",");
-\end{lstlisting}
+\end{javaCode}
 
 Igualmente se solicita al usuario que ingrese el $radio$ de la circunferencia, se almacena en una variable $r$ de tipo float
-\begin{lstlisting}[style=javaStyle]
+\begin{javaCode}
 System.out.print("Ingrese el radio de la circunferencia: ");
     float r = datC.nextFloat();
     datC.nextLine();  
-\end{lstlisting}
+\end{javaCode}
 
 Seguidamente se solicita al usuario que ingrese las coordenadas del punto T que es el punto de , en el formato \textbf{"x2, y2"} que se almacenan en un arreglo de cadenas llamado \textbf{"puntoT"}
-\begin{lstlisting}[style=javaStyle]
+\begin{javaCode}
 //Obtener las coordenadas del punto a verificar
 System.out.print("""
                 Ingrese las coordenadas del punto T
                 seperadas por una coma (x2, y2): 
                          """);
 String[] puntoT = (datC.nextLine()).split(",");
-\end{lstlisting}
+\end{javaCode}
 
 Se Cierra el objeto Scanner para liberar los recursos.
-\begin{lstlisting}[style=javaStyle]
+\begin{javaCode}
                   datC.close(); 
-\end{lstlisting}
+\end{javaCode}
 Se convierte las coordenadas del punto C y del punto T de cadenas a enteros (x1, y1, x2, y2).
 En Java, convertir datos en cadenas a enteros es útil cuando necesitas manipular o realizar operaciones matemáticas con números enteros que se encuentran representados como \textit{cadenas de caracteres}.
-\begin{lstlisting}[style=javaStyle]
+\begin{javaCode}
 int x1 = Integer.parseInt(puntoC[0].trim());
 int y1 = Integer.parseInt(puntoC[1].trim());
         
 int x2 = Integer.parseInt(puntoT[0].trim());
 int y2 = Integer.parseInt(puntoT[1].trim());
-\end{lstlisting}
+\end{javaCode}
 
 En esta parte del desarrollo se calcula la distancia entre el centro (punto C) y el punto T utilizando la fórmula de la distancia euclidiana que significa; la distancia en línea recta entre dos puntos en un plano.
-\begin{lstlisting}[style=javaStyle]
+\begin{javaCode}
 float distancia = (float)Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));   
-\end{lstlisting}
+\end{javaCode}
 
 Al final se utiliza las condiciones \textbf{if, else if y else} para evaluar la relación entre la distancia y el radio de la circunferencia, con esto se verifica si el punto T se encuentra dentro de la circunferencia, en el borde o fuera de ella y se muestra el resultado al usuario.
-\begin{lstlisting}[style=javaStyle]
+\begin{javaCode}
 //Verificar si el punto está dentro del área de la circunferencia
      if (distancia > r) {
     System.out.println("El punto T("+x2+","+y2+") esta fuera de la circunferencia");
@@ -140,13 +140,13 @@ Al final se utiliza las condiciones \textbf{if, else if y else} para evaluar la 
      System.out.println("El punto T("+x2+","+y2+") esta en el borde de la circunferencia");
     }else if (distancia < r){
      System.out.println("El punto T("+x2+","+y2+") esta dentro de la circunferencia"); }
-\end{lstlisting}
+\end{javaCode}
 
 \subsection{\textbf{Depuración y pruebas:}}
 
 \begin{table}[h!]
      \centering
-     \caption{Tabla de Corridas del problema 3}\\
+     \caption{Tabla de Corridas del problema 3}
 
      \begin{tabular}{|c|c|c|c|c|c|}
      \hline
