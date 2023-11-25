@@ -15,4 +15,4 @@
 [Lizbeth-Pagina](https://lizbernal.github.io/)
 
 ## Karen Pérez Ortiz
-[Karen Pérez Ortiz](https://karenperezor.github.io/)
+[Karen Pagina Personal](https://karenperezor.github.io/)
