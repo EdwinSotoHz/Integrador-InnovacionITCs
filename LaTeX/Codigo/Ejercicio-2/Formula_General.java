@@ -18,7 +18,8 @@ public class Formula_General {
         
         //Solicitar los coeficientes para la formula general.
         System.out.println("""
-                           "Ingresa los puntos a, b, c.
+                           "Ingresa los puntos a, b, c. 
+                           En numeros enteros
                            Separadas por una coma(a, b, c): 
                            """);
         
@@ -30,9 +31,11 @@ public class Formula_General {
         in.close();
         
         //normalizar Valores de a, b, c a numeros enteros.
-        int a= Integer.parseInt(datos[0].trim());
-        int b= Integer.parseInt(datos[1].trim());
-        int c= Integer.parseInt(datos[2].trim());
+        float a= Integer.parseInt(datos[0].trim());
+        float b= Integer.parseInt(datos[1].trim());
+        float c= Integer.parseInt(datos[2].trim());
+        
+        
         
         //Calcula la discriminante
         double discriminante=(Math.pow(b, 2)-(4*(a*c)));

@@ -49,21 +49,23 @@ Tal y como se muestra en el siguiente diagrama de flujo.
 \end{figure}
 
 \subsection{\textbf{Desarrollo de la solución:}}
-La implementación del código solicita al usuario los coeficientes \(a\), \(b\), y \(c\), calcula el discriminante y aplica la lógica mencionada para determinar la naturaleza de las raíces. 
+La implementación del código solicita al usuario los coeficientes \(a\), \(b\), y \(c\), en numeros enteros. 
 \begin{javaCode}
  Scanner in= new Scanner(System.in);
         //Solicitar los datos para la formula general.
         
         System.out.println("""
                            "Ingresa los puntos a, b, c.
+                           En numeros enteros.
                            Separadas por una coma(a, b, c): 
                            """);
+        //Divide una cadena de texto en un arreglo de cadenas, usando la coma como separador.
         String [] datos=in.nextLine().split(",");
         //cerrar el escaneo
         in.close();
         
 \end{javaCode}
-Posteriormente se convierten los valores de los puntos A, B, C. en valores enteros para ser utilizados  en la formula general .
+Posteriormente se convierten los valores de los puntos a, b, c. en valores enteros para ser utilizados  en la formula general.
 
 \begin{javaCode}
     //Asigna Valores de a, b, c en enteros.
@@ -83,8 +85,8 @@ Si la discriminante es mayor que cero se realiza la siguiente operación y se im
 \begin{javaCode}
     if (discriminante>0) {
         double x1=(-b+Math.sqrt(discriminante))/(2*a);
-            
         double x2=(-b-Math.sqrt(discriminante))/(2*a);
+
         System.out.println("La raiz x1 es igual a " + x1);
         System.out.println("La raiz x1 es igual a " + x2);
             
@@ -110,11 +112,11 @@ Por ultimo, si la discriminante es menor a cero solo se imprimira en pantalla:\\
     \hline
     \textbf{\(a\)} & \textbf{\(b\)} & \textbf{\(c\)} & \textbf{\(Resultado\)} \\
     \hline
-    1 & -3 & 2 & Raíces reales: \(x_1 = 2, x_2 = 1\) \\
+    1 & -3 & 2 & \(x_1 = 2, x_2 = 1\) \\
     \hline
-    1 & 2 & 1 & Raíz real única: \(x = -1\) \\
+    1 & 2 & 1 & \(x = -1\) \\
     \hline
-    1 & -2 & 5 & Raíces complejas \\
+    1 & -2 & 5 & Esta dentro de los numeros complejos\\
     \hline
     \end{tabular}
     \end{center}
