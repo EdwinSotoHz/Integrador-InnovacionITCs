@@ -1,4 +1,15 @@
 ﻿# Integrador-InnovaciónITCs
+Este repositorio contiene los archivos y documentos relacionados con el proyecto integrador "InnovaciónITCs". Aquí encontrarás las carpetas principales del proyecto y la documentación LaTeX.
+
+## Carpeta Codigo
+En la carpeta principal, encontrarás los archivos Java correspondientes a los ejercicios del proyecto.
+
+---
+
+## Carpeta LaTeX
+En la carpeta "LaTeX" encontrarás los archivos relacionados con la documentación del proyecto usando LaTeX.
+
+---
 
 # Integrantes
 

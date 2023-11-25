@@ -1,7 +1,26 @@
-# Archivo Template-manuscrito.tex
+# Proyecto Integrador - Carpeta LaTeX
 
-Este archivo contiene todo los detalles de como se debe de redactar el informe final del proyecto integrador de primer semestre. Los archivos **IEEEcsmag.cls**, **sfmath.sty** y **upmath.sty** sirven para renderizar la plantilla del archivo **Template-manuscrito.tex**.
+En la carpeta "LaTeX" encontrarás los archivos relacionados con la documentación del proyecto usando LaTeX.
 
-La carpeta **latex-imagenes** contiene las 2 imagenes utilizadas por el archivo **Template-manuscrito.tex**. Se recomienda poner todas las imagenes que se van a utilizar para el reporte final dentro de esta carpeta.
+## Estructura de Carpetas y Archivos
 
-El resultado de compilar el archivo **Template-manuscrito.tex** se puede apreciar en el archivo **Template-manuscrito.pdf**.
+1. **`IEEEcsmag.cls`**
+   - Archivo de clase que define el formato según el estilo de la IEEE Computer Society.
+
+2. **`sfmath.sty`**
+   - Archivo de estilo que configura la fuente en modo sans-serif para ecuaciones matemáticas.
+
+3. **`upmath.sty`**
+   - Archivo de estilo que mejora la disposición vertical de exponentes en ecuaciones matemáticas.
+
+4. **`InnovaciónITCs-manuscrito.tex`**
+   - Archivo principal que utiliza la plantilla definida por `IEEEcsmag.cls` para el manuscrito del equipo.
+
+5. **`InnovaciónITCs-manuscrito.pdf`**
+   - Resultado de compilar `InnovaciónITCs-manuscrito.tex`. Aquí puedes revisar la versión final del manuscrito.
+
+6. **`Ex1.tex`, `Ex2.tex`, `Ex3.tex`, `Ex4.tex`, `Ex5.tex`, `Ex6.tex`**
+   - Archivos LaTeX individuales para cada ejercicio del proyecto.
+
+7. **`latex-imagenes/`**
+   - Carpeta que almacena las imágenes utilizadas en la documentación LaTeX.
