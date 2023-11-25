@@ -11,8 +11,8 @@
 ## José María Ortiz Escamilla
 [José Página Personal](https://joseoe.github.io/)
 
-## Lizbeth de Jesús Bernal Franco
-[]()
+## Lizbeth de Jesús Bernal Francos
+[Lizbeth-Pagina](https://lizbernal.github.io/)
 
 ## Karen Pérez Ortiz
 [Karen Pérez Ortiz](https://karenperezor.github.io/)
