@@ -31,7 +31,7 @@ public class RectaPendiente {
             Double anguloGrados = angulo * (180/Math.PI);
 
             System.out.println("\nf(x) = "+m+"x + "+b);
-            System.out.println("θ = "+angulo+"°");
+            System.out.println("θ = "+anguloGrados+"°");
         }
     }
 }
