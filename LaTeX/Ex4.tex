@@ -13,7 +13,7 @@ El informe analiza el proceso de conversión de un número decimal entero positi
 
 \item[{\ieeeguilsinglright}] {\it A. DECIMALES POSITIVOS }
    
-La conversión de números decimales positivos a binarios, esta basada en divisiones sucesivas por 2. 
+La conversión de números decimales enteros positivos a binarios, esta basada en divisiones sucesivas por 2. 
 \newline
 
 \begin{figure}[h!]
@@ -52,42 +52,40 @@ El proceso de obtener el complemento a 2 de un número binario es un paso esenci
 \end{figure}
 
 \subsection{\textbf{Diseño de la solución:}}
-\begin{itemize}
-    \item Utiliza la clase Scanner para solicitar al usuario que ingrese un número decimal entero positivo o negativo en el rango de 64 bits, específicamente entre -1024 y 1024.
-    \item Lee la entrada del usuario y almacena el valor en la variable numeroD.
-    
-    \item Convierte la cadena numeroD a un número de tipo long llamado numeroDecimal.
-    \item Verifica si numeroDecimal está en el rango permitido. Si es positivo, realiza la conversión a binario. Si es negativo, calcula los complementos a uno y a dos.
-    \item Si el número está fuera del rango, lanza unmensaje.
-    
-    \item Convierte el valor absoluto de numero a su representación binaria.
-    \item Utiliza un bucle para realizar sucesivas divisiones por 2, registrando los residuos como bits en la representación binaria.
-    
-    \item Para complemento a Uno, utiliza la representación binaria obtenida anteriormente.
-    
-    \item Determina la longitud de bits necesarios para representar el número según su rango.
-    
-    \item Añade ceros a la izquierda para alcanzar la longitud necesaria.
-    Invierte cada bit para obtener el complemento a uno.
-    
-    \item Para el complemento a dos utiliza la representación del complemento a uno.
-    
-    \item Agrega 1 al resultado para obtener la representación del complemento a dos.
-    
-    \item Utiliza la clase BigInteger para manejar números grandes, ya que la representación de 65 bits podría exceder la capacidad de un tipo de datos primitivo.
-    
-    \item Imprime el resultado de la conversión a binario o los complementos a uno y a dos, según sea el caso.
-    \end{itemize}
 
+\begin{itemize}
+    \item Solicitar al usuario que ingrese un número decimal entero positivo o negativo en el rango de 64 bits, específicamente entre -1024 y 1024.
+    \item Lee la entrada del usuario y almacena el valor en la variable numeroD.
+    \item Verifica si numeroDecimal está en el rango permitido. Si es positivo, realiza la conversión a binario. Si es negativo, calcula los complementos a uno y a dos.
+    \item Si el número está fuera del rango, lanza un mensaje de error.
+    \newline 
+    
+    \newline NÚMEROS ENTEROS POSITIVOS:
+    \item Utiliza un bucle para realizar sucesivas divisiones por 2, registrando los residuos como bits en la representación binaria.
+
+    
     \begin{figure}
-        \centerline{\includegraphics[width=18.5pc]{./latex-imagenes/diagramaDecimalABinarioPositivo.png}}
+        \centerline{\includegraphics[width=18.5pc]{./latex-imágenes/diagramaDecimalABinarioPositivo.png}}
         \caption{Diagrama de flujo en caso de ser números Positivos}
         \vspace*{-5pt}
         \label{fig:dos}
         \end{figure}
 
+
+    \newline NÚMEROS ENTEROS NEGATIVOS:
+    \item Para complemento a Uno, utiliza la representación binaria obtenida anteriormente.
+    \item Determina la longitud de bits necesarios para representar el número según su rango.
+    \item Añade ceros a la izquierda para alcanzar la longitud necesaria e invierte cada bit para obtener el complemento a uno.
+    \newline 
+    
+    \item Para el complemento a dos utiliza la representación del complemento a uno.
+    \item Agrega 1 al dato de número valor resultado para obtener la representación del complemento a dos.
+    \item Utiliza la clase BigInteger para manejar números grandes, ya que la representación de 65 bits podría exceder la capacidad de un tipo de datos primitivo.
+    \item Imprime el resultado de la conversión a binario o los complementos a uno y a dos, según sea el caso.
+    \end{itemize}
+
         \begin{figure}
-            \centerline{\includegraphics[width=18.5pc]{./latex-imagenes/diagramaDecimalABinarioNegativo.png}}
+            \centerline{\includegraphics[width=18.5pc]{./latex-imágenes/diagramaDecimalABinarioNegativo.png}}
             \caption{Diagrama de Flujo en  caso de ser números negtivos }
             \vspace*{-5pt}
             \label{fig:dos}
@@ -98,16 +96,17 @@ El proceso de obtener el complemento a 2 de un número binario es un paso esenci
 
 \subsection{\textbf{Desarrollo de la solución:}}
 
-El algoritmo de solución para la conversión 
-Comienza importando librerías específicamente "Scanner" para capturar todo lo que ingrese el usuario y "BigInteger".
+El algoritmo de solución para la conversión: comienza importando librerías específicamente "Scanner" para capturar todo lo que ingrese el usuario y "BigInteger".
+
+\newline
 
 \begin{javaCode}
 import java.math.BigInteger;
 import java.util.Scanner;
 \end{javaCode}
 
-Se validan los datos, usuario tiene condiciones hacerca del numero a convertir, el numero debe ser solo entero ya sea positivo o negativo entre el rango de 64 bits, dependiendo su valor va a imprimirlo de acuerdo al numero ingresado.
-Posteriormente se agrega en el método principal, la instrucción para imprimir el resultado de la conversión, en caso de ser negativo se imprimen dos casos de complemento 1 y complemento 2.
+Se validan los datos: el número debe ser solo entero ya sea positivo o negativo entre el rango de 64 bits, dependiendo su valor va a imprimirlo de acuerdo al número ingresado.
+\newline
 
 \begin{javaCode}
    public static void main(String[] args) {
@@ -135,8 +134,8 @@ Posteriormente se agrega en el método principal, la instrucción para imprimir 
 }
 \end{javaCode}
 
-En caso contrario que el usuario haya tecleado un numero diferente al solicitado , donde si se encuentra fuera del rango o sea otro tipo de valor va a arrojar un mensaje de "Error". 
-Y cierra el escaneo para seguridad.
+En caso contrario que el usuario haya tecleado un número diferente al solicitado , donde si se encuentra fuera del rango o sea otro tipo de valor va a arrojar un mensaje de "Error". 
+\newline
 
 \begin{javaCode}
     //Excepción en caso de no encontrase en el rango solicitado
@@ -147,7 +146,8 @@ Y cierra el escaneo para seguridad.
 decimal.close(); 
 \end{javaCode}
 
-En el método decimalABinario se crea una variable llamada "binario" es una cadena,  toma el valor decimal y lo convierte en el valor absoluto, automáticamente si el numero ingresado es 0 lo retornara de igual forma 
+En el método decimalABinario se crea una variable llamada "binario” tipo cadena, toma el valor de decimal y lo convierte en el valor absoluto, automáticamente si el número ingresado es 0 lo retornara.
+\newline
 
 \begin{javaCode}
     public static String decimalABinario() {
@@ -161,7 +161,8 @@ En el método decimalABinario se crea una variable llamada "binario" es una cade
 \end{javaCode}
 
 
-Después se crea un bucle para los números diferentes de 0, como el número ya se convirtió e absoluto este ahora podrá tomar tanto números negativos como positivos para convertirlos, el bucle didive entre 2 y su residuo lo concatena de derecha a izquierda, retornando su valor a 0.
+Se crea un bucle para números distintos de 0, considerando su valor absoluto y permitiendo manejar números negativos y positivos. En el bucle, se divide el número por 2, concatenando su residuo de derecha a izquierda y actualizando su valor.
+\newline
 
 \begin{javaCode}
      // Bucle para convertir a número decimal
@@ -173,7 +174,9 @@ Después se crea un bucle para los números diferentes de 0, como el número ya 
         return binario;
     }
 \end{javaCode}
-De acuerdo al número ingresado a partir de if se comparara su rango, si es de 128 a -128 corresponde a 8 bits y asi sucesivamente  pero como es necesario realizar una suma para el complemento 2, este en lugar de tener 8 en su lugar camiara a 9.
+
+De acuerdo al número ingresado, se realiza una comparación de su rango con una estructura condicional. Sin embargo, debido a la necesidad de realizar una suma para calcular el complemento a dos, se sumara 1 bit.
+\newline
 
 \begin{javaCode}
 
@@ -196,7 +199,8 @@ De acuerdo al número ingresado a partir de if se comparara su rango, si es de 1
         }
 \end{javaCode}
 
-Se ajusta la longitud de la cadena binaria añadiendo ceros a la izquierda según sea necesario. Luego, se itera sobre cada bit en la cadena, invirtiéndolos y construyendo así la representación del complemento. La utilización de StringBuilder mejora la eficiencia en la manipulación de cadenas dentro del bucle. Finalmente, se retorna la representación del complemento a uno como una cadena de texto.
+Se ajusta la longitud de la cadena con ceros, se invierte para construir el complemento utilizando StringBuilder y se devuelve como una cadena.
+\newline
 
 \begin{javaCode}
    // Añadir ceros a la izquierda según la longitud necesaria
@@ -211,11 +215,11 @@ Se ajusta la longitud de la cadena binaria añadiendo ceros a la izquierda segú
             char bit = bits.charAt(i);
             complemento.append((bit == '0') ? '1' : '0');
         }
-
         return complemento.toString();
     }
 \end{javaCode}
 
+Por último calcula el complemento a dos de un número binario representado como cadena. Obtiene la representación binaria del complemento a uno, convierte a BigInteger (para 65 bits), suma 1 y devuelve la cadena del resultado. 
 
 \begin{javaCode}
        public static String complementoADos() {
@@ -232,13 +236,14 @@ Se ajusta la longitud de la cadena binaria añadiendo ceros a la izquierda segú
 
 \subsection{\textbf{Depuración y pruebas:}}
 
+\begin{itemize}
+    \item DECIMAL POSITIVO  
+    
 
 \begin{center}
-    \textbf{Tabla de Números Positivos}
-    
     \begin{tabular}{|c|c|c|c|}
     \hline
-    \textbf{Entrada Decimal} & \textbf{Binario Resultante} \\
+    \textbf{Número Decimal} & \textbf{Número Binario} \\
     \hline
     7 & 111 \\
     \hline
@@ -249,12 +254,12 @@ Se ajusta la longitud de la cadena binaria añadiendo ceros a la izquierda segú
     \end{tabular}
 \end{center}
 
+  \item DECIMAL NEGATIVO  
 \begin{center}
-    \textbf{Tabla de Números Negativos}
-    
+    \newline
     \begin{tabular}{|c|c|c|c|}
     \hline
-    \textbf{Entrada Decimal} & \textbf{Complemento a Uno} & \textbf{Complemento a Dos} \\
+    \textbf{Decimal} & \textbf{comp. a 1} & \textbf{comp. a 2} \\
     \hline
     -4 & 111111011 & 111111100 \\
     \hline
@@ -262,3 +267,4 @@ Se ajusta la longitud de la cadena binaria añadiendo ceros a la izquierda segú
     \hline
     \end{tabular}
 \end{center}
+\end{itemize}
