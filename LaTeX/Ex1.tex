@@ -49,10 +49,12 @@ La solución propuesta emplea tres funciones matemáticas clave para obtener la 
     \item \textbf{Cálculo del Ángulo \(\alpha\):} El ángulo \(\alpha\) entre la recta y el eje horizontal se calculará utilizando la tangente del ángulo:
     \begin{equation}
         \tan(\alpha) = \frac{\text{Pendiente de la Recta}}{1}.
+        \label{eqn:tangente}
     \end{equation}
     Por lo tanto, el ángulo \(\alpha\) se determinará mediante la arco tangente:
     \begin{equation}
         \alpha = \arctan\left(\frac{\text{Pendiente de la Recta}}{1}\right).
+        \label{eqn:angulo}
     \end{equation}
 \end{enumerate}
 
@@ -102,10 +104,8 @@ Las coordenadas separadas se convierten de cadenas a números enteros utilizando
         int y2 = Integer.parseInt(punto2[1].trim());
     \end{javaCode}
 
-Aquí se calcula la pendiente (\(m\)) de la recta utilizando la fórmula
-\[
-m = \frac{{y_2 - y_1}}{{x_2 - x_1}}
-\]
+Aquí se calcula la pendiente (\(m\)) de la recta utilizando la fórmula (ec. \ref{eqn:rectaPendiente})
+
 y luego se calcula la intersección en el eje \(Y\) (\(b\)) utilizando la fórmula (ec. \ref{eqn:eqnRecta}). La ecuación de la recta resultante es \(y = mx + b\).
 
     \begin{javaCode}
